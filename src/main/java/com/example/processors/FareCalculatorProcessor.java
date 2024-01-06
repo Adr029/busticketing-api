@@ -30,7 +30,7 @@ public class FareCalculatorProcessor {
             distance = trip.getDistance();
             busType = trip.getBusType();
             setAdditionalFare(busType);
-            trip.setFare(minimumFare + (additionalFare * distance));
+            trip.setFare(calculateTotalFare());
         }
     }
 
@@ -39,8 +39,10 @@ public class FareCalculatorProcessor {
         distance = trip.getDistance();
         busType = trip.getBusType();
         setAdditionalFare(busType);
-        return minimumFare + (additionalFare * distance);
+        return calculateTotalFare();
     }
+
+
 
     private void setAdditionalFare(int busType) {
         switch (busType) {
@@ -62,6 +64,10 @@ public class FareCalculatorProcessor {
             default:
                 break;
         }
+    }
+
+    private double calculateTotalFare() {
+        return Math.round((minimumFare + (additionalFare * distance)) * 100.0) / 100.0;
     }
 }
 

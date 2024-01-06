@@ -3,6 +3,7 @@ package com.example.services;
 import com.example.model.AvailableTrip;
 import com.example.model.ReservedTrip;
 import com.example.processors.FareCalculatorProcessor;
+import com.example.processors.TicketNumberProcessor;
 import com.example.repository.ReservationRepository;
 import com.example.repository.TripRepository;
 import org.springframework.stereotype.Service;
@@ -18,10 +19,13 @@ public class ReservationService {
     private final TripRepository tripRepository;
     private final FareCalculatorProcessor fareCalculatorProcessor;
 
-    public ReservationService(ReservationRepository reservationRepository, TripRepository tripRepository, FareCalculatorProcessor fareCalculatorProcessor) {
+    private final TicketNumberProcessor ticketNumberProcessor;
+
+    public ReservationService(ReservationRepository reservationRepository, TripRepository tripRepository, FareCalculatorProcessor fareCalculatorProcessor, TicketNumberProcessor ticketNumberProcessor) {
         this.reservationRepository = reservationRepository;
         this.tripRepository = tripRepository;
         this.fareCalculatorProcessor = fareCalculatorProcessor;
+        this.ticketNumberProcessor = ticketNumberProcessor;
     }
 
     //! TEST METHOD
@@ -40,10 +44,10 @@ public class ReservationService {
     {
         return tripRepository.getSpecificTrip(tripId);
     }
-    //TODO generate ticket number
     public void bookTrip(ReservedTrip newTrip, int selectedTripId) {
-        double fare = fareCalculatorProcessor.computeFare(selectedTripId) * newTrip.getQuantity();
-        reservationRepository.bookTrip(newTrip.getTicketNumber(), newTrip.getQuantity(), selectedTripId, newTrip.getFirstName(), newTrip.getLastname(), newTrip.getNotes(), newTrip.getDate(), newTrip.getTime(), fare);
+        double fare =  Math.round(fareCalculatorProcessor.computeFare(selectedTripId) * newTrip.getQuantity() * 100.0) / 100.0;
+        String ticketNumber = ticketNumberProcessor.generateTicketNumber();
+        reservationRepository.bookTrip(ticketNumber, newTrip.getQuantity(), selectedTripId, newTrip.getFirstName(), newTrip.getLastname(), newTrip.getNotes(), newTrip.getDate(), newTrip.getTime(), fare);
         modifySeats(selectedTripId, newTrip.getQuantity(), true);
 
     }

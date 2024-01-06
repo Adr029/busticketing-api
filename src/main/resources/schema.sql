@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS availabletrips (
 
 CREATE TABLE IF NOT EXISTS reservedtrips (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    ticketnumber INT,
+    ticketnumber VARCHAR(8),
     quantity INT,
     tripid INT,
     firstname VARCHAR(30),

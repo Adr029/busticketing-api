@@ -10,7 +10,7 @@ public class ReservedTrip {
     @Column("id")
     private int id;
     @Column("ticketnumber")
-    private int ticketNumber;
+    private String ticketNumber;
     @Column("tripid")
     private int tripId;
     @Column("quantity")
@@ -36,11 +36,11 @@ public class ReservedTrip {
         this.id = id;
     }
 
-    public int getTicketNumber() {
+    public String getTicketNumber() {
         return ticketNumber;
     }
 
-    public void setTicketNumber(int ticketNumber) {
+    public void setTicketNumber(String ticketNumber) {
         this.ticketNumber = ticketNumber;
     }
 

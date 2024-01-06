@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS reservedtrips (
 
     @Modifying
     @Query("INSERT INTO reservedtrips VALUES (NULL, :ticketnumber, :quantity, :tripid, :firstname, :lastname, :notes, :date, :time, :fare)")
-    void bookTrip(int ticketnumber, int quantity, int tripid, String firstname, String lastname, String notes, String date, String time, double fare);
+    void bookTrip(String ticketnumber, int quantity, int tripid, String firstname, String lastname, String notes, String date, String time, double fare);
     @Modifying
     @Query("DELETE FROM reservedtrips WHERE ticketnumber = :ticketNumber")
     void cancelBooking(int ticketNumber);
