@@ -21,10 +21,10 @@ mysql -u your_username -p -e "CREATE DATABASE busreservationdatabase;"
 - sample data is provided in `src/main/resources/data.sql`
 
 
-**3. Change mysql username and password as per your installation**
+**3. Change MySQL username and password as per your installation**
 
 + open `src/main/resources/application.properties`
-+ change `spring.datasource.username` and `spring.datasource.password` as per your mysql installation
++ change `spring.datasource.username` and `spring.datasource.password` as per your MySQL installation
 
 **4. Run the app using maven**
 
@@ -62,7 +62,7 @@ The endpoints are currently simple and has limited features. I plan to expand th
 | PATCH | /verify/{ticketnumber}/rebook | Rebook ticket| 'date' String  <br>'time' String <br>'newTrip' int | 
 | DELETE | /verify/{ticketnumber}/cancel | Cancel booking|  
 
-#### Example Request Body
+### Example Request Body
 
 ##### <a id="booktrip">Book Trip -> /trips/{origin}/{destination}/book</a>
 
