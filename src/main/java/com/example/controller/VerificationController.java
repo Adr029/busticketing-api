@@ -29,11 +29,7 @@ public class VerificationController {
         this.responseMessageService = responseMessageService;
     }
 
-    //! TEST METHOD
-    @GetMapping("/testreserve")
-    public List<ReservedTrip> displayAllReserved() {
-        return verificationService.displayAllTestReserved();
-    }
+
 
     @GetMapping("/verify/{ticketnumber}")
     public ReservedTrip verifyTrip(

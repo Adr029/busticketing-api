@@ -28,11 +28,7 @@ public class ReservationService {
         this.ticketNumberProcessor = ticketNumberProcessor;
     }
 
-    //! TEST METHOD
 
-    public List<AvailableTrip> displayAllTest() {
-        return reservationRepository.getAllTrips();
-    }
 
     public List<AvailableTrip> displayFromOrigin(String origin, String destination, String date) {
         List<AvailableTrip> trips = tripRepository.displayTripsByDate(origin, destination, date);

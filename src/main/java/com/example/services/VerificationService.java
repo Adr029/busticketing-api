@@ -51,8 +51,5 @@ public class VerificationService {
         reservationRepository.cancelBooking(ticketNumber);
     }
 
-    //! TEST METHOD
-    public List<ReservedTrip> displayAllTestReserved() {
-        return reservationRepository.getAllReservedTrips();
-    }
+
 }

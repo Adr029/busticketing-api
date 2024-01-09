@@ -20,11 +20,7 @@ public class ReservationController {
         this.responseMessageService = responseMessageService;
     }
 
-    //! TEST METHOD
-    @GetMapping("/test")
-    public List<AvailableTrip> displayAll() {
-        return reservationService.displayAllTest();
-    }
+
 
     @GetMapping("/trips/{origin}/{destination}")
     public List<AvailableTrip> displayTripsFromOrigin(
