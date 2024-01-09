@@ -59,7 +59,7 @@ The endpoints are currently simple and has limited features. I plan to expand th
 | Method | Url | Description | Request Parameters| Request Body |
 | ------ | --- | ---------- | -----------------| ---------------|
 | GET  | /verify/{ticketnumber} | Verify customer booking | 'lastName' String |
-| PATCH | /verify/{ticketnumber}/rebook | Rebook ticket| 'date' String  <br>'time' String <br>'newTrip' int | 
+| PATCH | /verify/{ticketnumber}/rebook | Rebook ticket| 'date' String  <br>'time' String <br>'newTripId' int | 
 | DELETE | /verify/{ticketnumber}/cancel | Cancel booking|  
 
 ### Example Request Body
