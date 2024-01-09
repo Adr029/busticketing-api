@@ -8,16 +8,13 @@ import org.springframework.web.context.annotation.SessionScope;
 public class TicketVerificationProcessor {
 
     private boolean isTicketValid;
+    private String validatedTicket;
 
-
-    //TODO modify ticket number of other classes to utilize String
-    private int validatedTicket;
-
-    public int getValidatedTicket() {
+    public String getValidatedTicket() {
         return validatedTicket;
     }
 
-    public void setValidatedTicket(int validatedTicket) {
+    public void setValidatedTicket(String validatedTicket) {
         this.validatedTicket = validatedTicket;
     }
 

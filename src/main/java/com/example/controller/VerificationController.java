@@ -33,7 +33,7 @@ public class VerificationController {
 
     @GetMapping("/verify/{ticketnumber}")
     public ReservedTrip verifyTrip(
-            @PathVariable("ticketnumber") int ticketNumber,
+            @PathVariable("ticketnumber") String ticketNumber,
             @RequestParam String lastName
     )
     {
@@ -42,33 +42,32 @@ public class VerificationController {
 
     @PatchMapping("/verify/{ticketnumber}/rebook")
     public ResponseEntity<?> rebookTrip(
-            @PathVariable("ticketnumber") int ticketNumber,
+            @PathVariable("ticketnumber") String ticketNumber,
             @RequestParam String date,
             @RequestParam String time,
-            @RequestParam int newTrip
+            @RequestParam int newTripId
     )
     {
 
         validateCredentials(ticketNumber);
-        verificationService.rebookTrip(date, time, ticketNumber, newTrip);
+        verificationService.rebookTrip(date, time, ticketNumber, newTripId);
         return responseMessageService.createMessage("Trip rebooked.", HttpStatus.ACCEPTED);
 
     }
 
     @DeleteMapping("/verify/{ticketnumber}/cancel")
     public ResponseEntity<?> cancelTrip(
-            @PathVariable("ticketnumber") int ticketNumber
+            @PathVariable("ticketnumber") String ticketNumber
     )
     {
         validateCredentials(ticketNumber);
-
         verificationService.cancelTrip(ticketNumber);
         return responseMessageService.createMessage("Trip canceled.", HttpStatus.ACCEPTED);
     }
 
-    private void validateCredentials(int ticketNumber)
+    private void validateCredentials(String ticketNumber)
     {
-        if (!ticketVerificationProcessor.isTicketValid() || ticketVerificationProcessor.getValidatedTicket() != ticketNumber) {
+        if (!ticketVerificationProcessor.isTicketValid() || !ticketVerificationProcessor.getValidatedTicket().equals(ticketNumber)) {
             throw new UnathorizedOperationException();
         }
     }

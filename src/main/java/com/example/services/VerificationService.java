@@ -24,7 +24,7 @@ public class VerificationService {
         this.reservationService = reservationService;
     }
 
-    public ReservedTrip checkReservation(String lastName, int ticketNumber) {
+    public ReservedTrip checkReservation(String lastName, String ticketNumber) {
         reservation = reservationRepository.findReservation(ticketNumber, lastName);
 
         if (reservation == null) {
@@ -37,16 +37,15 @@ public class VerificationService {
     }
 
 
-    public void rebookTrip(String date, String time, int ticketNumber, int newTrip) {
+    public void rebookTrip(String date, String time, String ticketNumber, int newTrip) {
 
         reservationService.modifySeats(reservation.getTripId(), reservation.getQuantity(), true);
-        reservationRepository.updateBooking(date, time, ticketNumber);
+        reservationRepository.updateBooking(date, time, ticketNumber, newTrip);
         reservationService.modifySeats(newTrip, reservation.getQuantity(), false);
 
-            //TODO user may only rebook trip of same bus type
     }
 
-    public void cancelTrip(int ticketNumber) {
+    public void cancelTrip(String ticketNumber) {
         reservationService.modifySeats(reservation.getTripId(), reservation.getQuantity(), true);
         reservationRepository.cancelBooking(ticketNumber);
     }
