@@ -43,3 +43,6 @@ cmake-build-*/
 # OS-specific files
 .DS_Store
 Thumbs.db
+
+# Exclude the target folder in IntelliJ
+/target/
