@@ -6,9 +6,10 @@ CREATE TABLE IF NOT EXISTS availabletrips (
     destination VARCHAR(30),
     availableseats INT,
     bustype INT,
-    distance INT
-
+    distance INT,
+    UNIQUE KEY unique_trip (departuredate, departuretime, origin, destination, bustype)
 );
+
 
 
 CREATE TABLE IF NOT EXISTS reservedtrips (
@@ -21,8 +22,9 @@ CREATE TABLE IF NOT EXISTS reservedtrips (
     notes VARCHAR(150),
     date VARCHAR(30),
     time VARCHAR(30),
-    fare DOUBLE
-
+    fare DOUBLE,
+    UNIQUE KEY unique_reservation (ticketnumber)
 );
+
 
 
