@@ -13,12 +13,6 @@ public interface ReservationRepository extends CrudRepository<ReservedTrip, Inte
     @Query("SELECT * FROM reservedtrips WHERE ticketnumber = :ticketNumber AND lastname = :lastName")
     ReservedTrip findReservation(String ticketNumber, String lastName);
 
-    //! TEST METHOD
-
-    @Query("SELECT * FROM availabletrips")
-    List<AvailableTrip> getAllTrips();
-    //! TEST METHOD
-
     @Query("SELECT * FROM reservedtrips")
     List<ReservedTrip> getAllReservedTrips();
 

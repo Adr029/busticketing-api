@@ -23,6 +23,9 @@ public interface TripRepository extends CrudRepository<AvailableTrip, Integer> {
 
     );
      */
+
+    @Query("SELECT * FROM availabletrips")
+    List<AvailableTrip> getAllTrips();
     @Query("SELECT * FROM availabletrips WHERE origin = :origin AND destination = :destination AND departuredate = :departureDate")
     List<AvailableTrip> displayTripsByDate(String origin, String destination, String departureDate);
 
