@@ -43,7 +43,6 @@ public class FareCalculatorProcessor {
     }
 
 
-
     private void setAdditionalFare(int busType) {
         switch (busType) {
             case 0:

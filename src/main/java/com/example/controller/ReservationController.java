@@ -21,7 +21,6 @@ public class ReservationController {
     }
 
 
-
     @GetMapping("/trips/{origin}/{destination}")
     public List<AvailableTrip> displayTripsFromOrigin(
             @PathVariable("origin") String origin,

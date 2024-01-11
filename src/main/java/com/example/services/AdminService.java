@@ -25,32 +25,28 @@ public class AdminService {
     }
 
     public List<AvailableTrip> displayAllTrips() {
-        if (!adminCredentialsProcessor.isAdminValid())
-        {
+        if (!adminCredentialsProcessor.isAdminValid()) {
             throw new UnathorizedOperationException();
         }
         return tripRepository.getAllTrips();
     }
 
     public List<ReservedTrip> displayAllReservations() {
-        if (!adminCredentialsProcessor.isAdminValid())
-        {
+        if (!adminCredentialsProcessor.isAdminValid()) {
             throw new UnathorizedOperationException();
         }
         return reservationRepository.getAllReservedTrips();
     }
 
 
-    public boolean validateAdminCredentials (String username, String password)
-    {
+    public boolean validateAdminCredentials(String username, String password) {
         adminCredentialsProcessor.setUsername(username);
         adminCredentialsProcessor.setPassword(password);
         adminCredentialsProcessor.checkAdminCredentials();
         return adminCredentialsProcessor.isAdminValid();
     }
 
-    public void logOut()
-    {
+    public void logOut() {
         adminCredentialsProcessor.setAdminValid(false);
     }
 }

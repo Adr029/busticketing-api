@@ -36,10 +36,8 @@ public class AdminCredentialsProcessor {
         this.adminValid = adminValid;
     }
 
-    public void checkAdminCredentials()
-    {
-        if (username.equals("admin") && password.equals("adminpass"))
-        {
+    public void checkAdminCredentials() {
+        if (username.equals("admin") && password.equals("adminpass")) {
             adminValid = true;
         }
     }

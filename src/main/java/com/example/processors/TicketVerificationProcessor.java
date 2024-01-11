@@ -21,6 +21,7 @@ public class TicketVerificationProcessor {
     public boolean isTicketValid() {
         return isTicketValid;
     }
+
     public void setTicketValid(boolean ticketValid) {
 
         isTicketValid = ticketValid;

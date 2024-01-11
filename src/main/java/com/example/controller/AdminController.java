@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.example.exceptions.UnathorizedOperationException;
 import com.example.model.AvailableTrip;
 import com.example.model.ReservedTrip;
 import com.example.services.AdminService;
@@ -25,14 +24,12 @@ public class AdminController {
     public void adminLogin(
             @RequestParam String username,
             @RequestParam String password
-    )
-    {
+    ) {
         adminService.validateAdminCredentials(username, password);
     }
 
     @GetMapping("/admin/logout")
-    public void adminLogout()
-    {
+    public void adminLogout() {
         adminService.logOut();
     }
 
