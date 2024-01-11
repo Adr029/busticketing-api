@@ -1,8 +1,16 @@
 # Bus Ticketing System RESTful API
 
 This is a simple RESTful API for a bus ticketing system I did to practice my API development skills. This is intended to be used for a frontend which I plan to develop in the future.
+<div align="left">
+  
+  ![IntelliJ IDEA](https://img.shields.io/badge/IntelliJ_IDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
+  ![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
+  ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white)
+  ![Spring Boot](https://img.shields.io/badge/Spring_Boot-F2F4F9?style=for-the-badge&logo=spring-boot)
+  ![VSCode](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 
----
+</div>
+
 
 ## Steps to Setup
 Instructions format copied from https://github.com/osopromadze/Spring-Boot-Blog-REST-API
