@@ -38,12 +38,14 @@ The app will start running at <http://localhost:8080>
 The endpoints are currently simple and has limited features. I plan to expand them in the future.
 
 
-### Test Methods
+### Admin Methods
 
-| Method | Url | Description |
-| ------ | --- | ---------- |
-| GET  | /test | Display all available trips | 
-| GET  | /testreserve | Display all reserved trips | 
+| Method | Url | Description | Request Parameters|
+| ------ | --- | ---------- | -----------------|
+| GET  | /admin/login | Login admin credentials | 'username' String <br> 'password' String
+| GET  | /admin/logout | Display all reserved trips | 
+| GET  | /admin/displaytrips | Display all available trips | 
+| GET  | /admin/displayreservations | Display all reserved trips | 
 
 
 ### Reservation Methods
