@@ -43,7 +43,7 @@ The endpoints are currently simple and has limited features. I plan to expand th
 | Method | Url | Description | Request Parameters|
 | ------ | --- | ---------- | -----------------|
 | GET  | /admin/login | Login admin credentials | 'username' String <br> 'password' String
-| GET  | /admin/logout | Display all reserved trips | 
+| GET  | /admin/logout | Logout of admin functionalities | 
 | GET  | /admin/displaytrips | Display all available trips | 
 | GET  | /admin/displayreservations | Display all reserved trips | 
 
